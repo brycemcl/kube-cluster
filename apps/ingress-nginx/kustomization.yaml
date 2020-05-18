@@ -1,5 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: rook-ceph
+namespace: ingress-nginx
 resources:
-- rook/cluster/examples/kubernetes/ceph/common.yaml
+- ingress-nginx/deploy/static/provider/cloud/deploy.yaml
+patchesStrategicMerge:
+- patch.yaml

@@ -7,3 +7,4 @@ kubectl apply -k kustomization.yaml
 
 
 git submodule add -b release-1.3 https://github.com/rook/rook.git
+git submodule add https://github.com/kubernetes/ingress-nginx.git
