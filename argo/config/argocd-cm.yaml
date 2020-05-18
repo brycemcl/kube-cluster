@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
 data:
   # Argo CD's externally facing base URL (optional). Required when configuring SSO
-  url: https://argo-cd-demo.argoproj.io
+  url: https://argo-cd.home.bmclachlan.xyz/
 
   # Enables application status badge feature
   statusbadge.enabled: 'true'
@@ -17,15 +17,9 @@ data:
   # This list is updated when configuring/removing repos from the UI/CLI
   # Note: 'type: helm' field is supported in v1.3+. Use 'helm.repositories' for older versions.
   repositories: |
-    - url: https://github.com/argoproj/my-private-repository
-      passwordSecret:
-        name: my-secret
-        key: password
-      usernameSecret:
-        name: my-secret
-        key: username
+    - url: git@github.com
       sshPrivateKeySecret:
-        name: my-secret
+        name: sshprivatekey-github
         key: sshPrivateKey
 
   # The metadata.label key name where Argo CD injects the app name as a tracking label (optional).

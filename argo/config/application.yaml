@@ -13,14 +13,14 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    repoURL: git@github.com:brycemcl/kube-cluster.git
     targetRevision: HEAD
 #    path: guestbook
 
   # Destination cluster and namespace to deploy the application
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+#    namespace: argocd
 
   # Sync policy
   syncPolicy:
