@@ -1,0 +1,4 @@
+[submodule "argo/app/argo-cd"]
+	path = argo/app/argo-cd
+	url = https://github.com/argoproj/argo-cd.git
+	branch = release-1.5
