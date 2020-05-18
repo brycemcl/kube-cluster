@@ -1,0 +1,6 @@
+ssh-keygen
+##add public key to github
+cat /home/ubuntu/.ssh/id_rsa.pub
+
+kubectl create secret generic sshprivatekey-github -n argocd --from-file=/home/ubuntu/.ssh/id_rsa
+kubectl apply -k kustomization.yaml
