@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+data:
+  # Argo CD's externally facing base URL (optional). Required when configuring SSO
+  url: https://argo-cd-demo.argoproj.io
+
+  # Enables application status badge feature
+  statusbadge.enabled: 'true'
+
+  # Git repositories configure Argo CD with (optional).
+  # This list is updated when configuring/removing repos from the UI/CLI
+  # Note: 'type: helm' field is supported in v1.3+. Use 'helm.repositories' for older versions.
+  repositories: |
+    - url: https://github.com/argoproj/my-private-repository
+      passwordSecret:
+        name: my-secret
+        key: password
+      usernameSecret:
+        name: my-secret
+        key: username
+      sshPrivateKeySecret:
+        name: my-secret
+        key: sshPrivateKey
+    - type: helm
+      url: https://storage.googleapis.com/istio-prerelease/daily-build/master-latest-daily/charts
+      name: istio.io
+    - type: helm
+      url: https://my-private-chart-repo.internal
+      name: private-repo
+      usernameSecret:
+        name: my-secret
+        key: username
+      passwordSecret:
+        name: my-secret
+        key: password
+
+  # The metadata.label key name where Argo CD injects the app name as a tracking label (optional).
+  # Tracking labels are used to determine which resources need to be deleted when pruning.
+  # If omitted, Argo CD injects the app name into the label: 'app.kubernetes.io/instance'
+  application.instanceLabelKey: mycompany.com/appname
+
+  # disables admin user. Admin is enabled by default
+  admin.enabled: "false"
+  # add an additional local user with apiKey and login capabilities
+  #   apiKey - allows generating API keys
+  #   login - allows to login using UI
+  accounts.alice: apiKey, login
