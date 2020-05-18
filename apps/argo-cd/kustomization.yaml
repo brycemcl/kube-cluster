@@ -6,3 +6,5 @@ bases:
 - app
 resources:
 - ingress.yaml
+bases:
+- ../cilium
