@@ -27,27 +27,15 @@ data:
       sshPrivateKeySecret:
         name: my-secret
         key: sshPrivateKey
-    - type: helm
-      url: https://storage.googleapis.com/istio-prerelease/daily-build/master-latest-daily/charts
-      name: istio.io
-    - type: helm
-      url: https://my-private-chart-repo.internal
-      name: private-repo
-      usernameSecret:
-        name: my-secret
-        key: username
-      passwordSecret:
-        name: my-secret
-        key: password
 
   # The metadata.label key name where Argo CD injects the app name as a tracking label (optional).
   # Tracking labels are used to determine which resources need to be deleted when pruning.
   # If omitted, Argo CD injects the app name into the label: 'app.kubernetes.io/instance'
-  application.instanceLabelKey: mycompany.com/appname
+  #application.instanceLabelKey: mycompany.com/appname
 
   # disables admin user. Admin is enabled by default
-  admin.enabled: "false"
+  #admin.enabled: "false"
   # add an additional local user with apiKey and login capabilities
   #   apiKey - allows generating API keys
   #   login - allows to login using UI
-  accounts.alice: apiKey, login
+  #accounts.alice: apiKey, login

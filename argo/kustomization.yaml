@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: my-namespace
+namespace: argocd
 resources:
-- agro/kustomize.yaml
-- apps/kustomize.yaml
+- config/kustomize.yaml
+- app/kustomize.yaml
