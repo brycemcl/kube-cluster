@@ -6,3 +6,6 @@
 	path = apps/rook-ceph/rook
 	url = https://github.com/rook/rook.git
 	branch = release-1.3
+[submodule "apps/ingress-nginx/ingress-nginx"]
+	path = apps/ingress-nginx/ingress-nginx
+	url = https://github.com/kubernetes/ingress-nginx.git
