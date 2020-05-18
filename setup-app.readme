@@ -1,0 +1,4 @@
+#create new folder under apps
+#add upstream
+git submodule add -b v1.7 https://github.com/cilium/cilium.git
+git submodule add https://github.com/kubernetes/ingress-nginx.git

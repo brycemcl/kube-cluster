@@ -13,3 +13,7 @@
 	path = apps/metallb/metallb
 	url = https://github.com/metallb/metallb.git
 	branch = v0.9
+[submodule "apps/cilium/cilium"]
+	path = apps/cilium/cilium
+	url = https://github.com/cilium/cilium.git
+	branch = v1.7

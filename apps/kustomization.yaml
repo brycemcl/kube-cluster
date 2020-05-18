@@ -7,3 +7,4 @@ bases:
 - rook-ceph
 - metallb
 - ingress-nginx
+- cilium

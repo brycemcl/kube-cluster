@@ -1,0 +1,26 @@
+ssh-keygen
+##add public key to github
+cat /home/ubuntu/.ssh/id_rsa.pub
+
+#clone git
+git clone
+git submodule update --init --recursive
+#update
+git pull --recurse-submodules
+
+sudo kubeadm init --config kubeadm.yaml --upload-certs
+kubectl taint nodes --all node-role.kubernetes.io/master-
+
+kubeadm token create
+
+
+
+
+sudo kubeadm join 192.168.0.200:6443 --token 9vr73a.a8uxyaju799qwdjv --discovery-token-ca-cert-hash sha256:7c2e69131a36ae2a042a339b33381c6d0d43887e2de83720eff5359e26aec866 --control-plane --certificate-key f8902e114ef118304e561c3ecd4d0b543adc226b7a07f675f56564185ffe0c07
+
+
+
+
+kubectl create secret generic sshprivatekey-github -n argocd --from-file=/home/ubuntu/.ssh/id_rsa
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" --dry-run=client -o yaml > apps/metallb/secret.yaml
+kubectl apply -k kustomization.yaml
