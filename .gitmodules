@@ -9,3 +9,7 @@
 [submodule "apps/ingress-nginx/ingress-nginx"]
 	path = apps/ingress-nginx/ingress-nginx
 	url = https://github.com/kubernetes/ingress-nginx.git
+[submodule "apps/metallb/metallb"]
+	path = apps/metallb/metallb
+	url = https://github.com/metallb/metallb.git
+	branch = v0.9
