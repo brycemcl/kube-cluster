@@ -13,7 +13,7 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: git@github.com:brycemcl/kube-cluster.git
+    repoURL: https://github.com/brycemcl/kube-cluster.git
     targetRevision: HEAD
 #    path: guestbook
 
