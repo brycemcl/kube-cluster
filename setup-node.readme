@@ -1,8 +1,6 @@
 sudo su
 ## remove swap
 nano /etc/fstab
-apt-get update && apt-get install -y apt-transport-https curl containerd kubectl kubelet kubeadm haproxy && apt-mark hold kubelet kubeadm kubectl
-
 
 cat > /etc/modules-load.d/containerd.conf <<EOF
 overlay
@@ -209,5 +207,8 @@ oom_score = 0
     pool_name = ""
     base_image_size = ""
 EOF
+
+apt-get update && apt-get install -y apt-transport-https curl containerd kubectl kubelet kubeadm haproxy && apt-mark hold kubelet kubeadm kubectl
+
 
 reboot
