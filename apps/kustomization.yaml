@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 #- app-template/kustomize.yaml
 bases:
-- argo-cd
+#- argo-cd
 - rook-ceph
 - metallb
 - ingress-nginx
