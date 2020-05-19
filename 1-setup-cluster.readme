@@ -7,7 +7,7 @@ cd kube-cluster && git submodule update --init --recursive
 #update
 git pull --recurse-submodules
 
-sudo kubeadm init --config kubeadm.yaml --upload-certs
+sudo kubeadm init --config config/kubeadm.yaml --upload-certs
 
 kubectl create namespace argocd
 kubectl create namespace metallb-system
