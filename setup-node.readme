@@ -209,6 +209,6 @@ oom_score = 0
 EOF
 
 apt-get update && apt-get install -y apt-transport-https curl containerd kubectl kubelet kubeadm haproxy && apt-mark hold kubelet kubeadm kubectl
-
+systemctl enable haproxy
 
 reboot
