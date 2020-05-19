@@ -21,3 +21,4 @@ kubectl create secret generic sshprivatekey-github -n argocd --from-file=/home/u
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" --dry-run=client -o yaml > apps/metallb/secret.yaml
 git add . && git commit -m "." && git push
 kubectl apply -k apps/argo-cd
+kubectl patch secret -n argocd argocd-secret   -p '{"stringData": { "admin.password": "'$(htpasswd -bnBC 10 "" newpassword | tr -d ':\n')'"}}'
