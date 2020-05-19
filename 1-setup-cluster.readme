@@ -3,7 +3,7 @@ ssh-keygen
 cat /home/ubuntu/.ssh/id_rsa.pub
 
 #clone git
-cd kube-cluster && git submodule update --init --recursive
+cd kube-cluster && git submodule update --init --recursive --depth 1
 #update
 git pull --recurse-submodules
 
