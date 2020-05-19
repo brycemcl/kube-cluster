@@ -1,9 +1,7 @@
 apiVersion: kubeadm.k8s.io/v1beta2
 kind: InitConfiguration
 nodeRegistration:
-  taints:
-  - effect: 
-    key: node-role.kubernetes.io/master
+  taints: []
 ---
 apiVersion: kubeadm.k8s.io/v1beta2
 clusterName: kubernetes
