@@ -2,7 +2,7 @@ sudo su
 ## remove swap
 nano /etc/fstab
 
-git clone https://github.com/brycemcl/kube-cluster.git && cd kube-cluster
+git clone https://github.com/brycemcl/kube-cluster.git --depth 1 && cd kube-cluster
 apt-get update && apt-get install -y apt-transport-https curl containerd kubectl kubelet kubeadm haproxy && apt-mark hold kubelet kubeadm kubectl
 systemctl enable haproxy
 modprobe overlay
