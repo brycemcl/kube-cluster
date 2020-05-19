@@ -3,7 +3,7 @@ ssh-keygen
 cat /home/ubuntu/.ssh/id_rsa.pub
 
 #clone git
-cd kube-cluster && git submodule update --init --recursive
+cd kube-cluster && git submodule update --init --recursive --depth 1
 #update
 git pull --recurse-submodules
 
@@ -12,6 +12,7 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl apply -k apps/cilium
+kubectl taint nodes --all node-role.kubernetes.io/master-
 
 ## wait for cluster to come up
 kubectl create namespace argocd
