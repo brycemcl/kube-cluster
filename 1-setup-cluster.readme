@@ -8,12 +8,15 @@ cd kube-cluster && git submodule update --init --recursive
 git pull --recurse-submodules
 
 sudo kubeadm init --config config/kubeadm.yaml --upload-certs
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+kubectl apply -k apps/cilium
 
+## wait for cluster to come up
 kubectl create namespace argocd
 kubectl create namespace metallb-system
 kubectl create secret generic sshprivatekey-github -n argocd --from-file=/home/ubuntu/.ssh/id_rsa
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" --dry-run=client -o yaml > apps/metallb/secret.yaml
 git add . && git commit -m "." && git push
-kubectl apply -k apps/cilium
-## wait for cluster to come up
 kubectl apply -k apps/argo-cd
