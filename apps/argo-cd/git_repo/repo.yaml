@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: game-config-env-file
+  namespace: argocd
+data:
+  repository.credentials: |
+    - sshPrivateKeySecret:
+        key: sshPrivateKey
+        name: github-key
+      url: git@github.com:brycemcl/kube-cluster.git
