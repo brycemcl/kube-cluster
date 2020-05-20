@@ -4,6 +4,3 @@ namespace: argocd
 bases:
 - config
 - app
-resources:
-- ingress.yaml
-- namespace.yaml
