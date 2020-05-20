@@ -5,9 +5,9 @@ data:
       insecure: true
       insecureIgnoreHostKey: true
       name: kube-cluster
-      sshPrivateKeySecret:
-        key: sshPrivateKey
-        name: github-key
+#      sshPrivateKeySecret:
+#        key: sshPrivateKey
+#        name: github-key
       type: git
       url: git@github.com:brycemcl/kube-cluster.git
 kind: ConfigMap
