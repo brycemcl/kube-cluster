@@ -6,6 +6,7 @@ cat /home/ubuntu/.ssh/id_rsa.pub
 cd kube-cluster && git submodule update --init --recursive --depth 1
 #update
 git pull --recurse-submodules
+kubectl kustomize apps > compiled.yaml
 
 sudo kubeadm init --config config/kubeadm.yaml --upload-certs
 mkdir -p $HOME/.kube
