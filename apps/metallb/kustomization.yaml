@@ -5,4 +5,3 @@ bases:
 - metallb/manifests
 resources:
 - configmap.yaml
-- secret.yaml
