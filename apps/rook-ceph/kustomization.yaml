@@ -6,6 +6,10 @@ resources:
 - rook/cluster/examples/kubernetes/ceph/common.yaml
 - rook/cluster/examples/kubernetes/ceph/operator.yaml
 - rook/cluster/examples/kubernetes/ceph/cluster.yaml
+- rook/cluster/examples/kubernetes/ceph/filesystem-ec.yaml
 - rook/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-ec.yaml
+- rook/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml
 patchesStrategicMerge:
 - replicated-metadata-pool.yaml
+- default-storage-class.yaml
+- cephfs-storageclass.yaml
