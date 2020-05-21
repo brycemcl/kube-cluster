@@ -5,4 +5,4 @@ git clone https://github.com/brycemcl/kube-cluster.git && cd kube-cluster && git
 cd kube-cluster && git pull --recurse-submodules
 
 #update manifests
-kubectl kustomize apps > kube-base/apps/base.yaml && cd kube-base && && git add . && git commit -m "." && git push && cd ..
+kubectl kustomize apps > kube-base/apps/base.yaml && cd kube-base && git add . && git commit -m "." && git push && cd ..
