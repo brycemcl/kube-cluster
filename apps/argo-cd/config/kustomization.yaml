@@ -5,6 +5,5 @@ resources:
 - applications-kube-cluster.yaml
 - appprojects-default.yaml
 - argocd-cm.yaml
-- key.yaml
 - namespace.yaml
 - ingress.yaml
