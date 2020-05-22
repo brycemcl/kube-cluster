@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: rook-ceph
 resources:
 ##dashboad access
-- rook/cluster/examples/kubernetes/ceph/dashboard-ingress-https.yaml
+#- ingress.yaml
 ##Cluster setting
 - rook/cluster/examples/kubernetes/ceph/common.yaml
 - rook/cluster/examples/kubernetes/ceph/operator.yaml
@@ -11,14 +11,12 @@ resources:
 #Block storage
 - rook/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-ec.yaml
 ##Cephfs
-- rook/cluster/examples/kubernetes/ceph/filesystem-ec.yaml
-- rook/cluster/examples/kubernetes/ceph/pool-ec.yaml
-- rook/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml
+#- rook/cluster/examples/kubernetes/ceph/filesystem-ec.yaml
+#- rook/cluster/examples/kubernetes/ceph/pool-ec.yaml
+#- rook/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml
 patchesStrategicMerge:
 #Block storage
 - replicated-metadata-pool.yaml
 - default-storage-class.yaml
 ##Cephfs
-- cephfs-storageclass.yaml
-##dashboad access
-- ingress.yaml
+#- cephfs-storageclass.yaml
