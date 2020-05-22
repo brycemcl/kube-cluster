@@ -8,4 +8,4 @@ parameters:
 
   # Ceph pool into which the volume shall be created
   # Required for provisionVolume: "true"
-  pool: ec-data-pool
+  pool: ec-pool
