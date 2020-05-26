@@ -2,21 +2,13 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: rook-ceph
 resources:
-##dashboad access
-#- ingress.yaml
 ##Cluster setting
 - rook/cluster/examples/kubernetes/ceph/common.yaml
 - rook/cluster/examples/kubernetes/ceph/operator.yaml
 - rook/cluster/examples/kubernetes/ceph/cluster.yaml
 #Block storage
 - rook/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-ec.yaml
-##Cephfs
-#- rook/cluster/examples/kubernetes/ceph/filesystem-ec.yaml
-#- rook/cluster/examples/kubernetes/ceph/pool-ec.yaml
-#- rook/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml
 patchesStrategicMerge:
 #Block storage
 - replicated-metadata-pool.yaml
 - default-storage-class.yaml
-##Cephfs
-#- cephfs-storageclass.yaml

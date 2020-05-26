@@ -6,5 +6,4 @@ bases:
 - argo-cd
 - rook-ceph
 - metallb
-- ingress-nginx
 - cilium
