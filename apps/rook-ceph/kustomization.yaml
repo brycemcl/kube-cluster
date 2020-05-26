@@ -12,3 +12,4 @@ patchesStrategicMerge:
 #Block storage
 - replicated-metadata-pool.yaml
 - default-storage-class.yaml
+- cephVersion.yaml
