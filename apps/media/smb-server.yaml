@@ -1,11 +1,16 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: smb-server
   labels:
     app: smb-server
 spec:
   replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1 
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: smb-server
@@ -13,7 +18,7 @@ spec:
     metadata:
       labels:
         app: smb-server
-        configmap-version: "1"
+        configmap-version: "2"
     spec:
       containers:
       - name: smb-server

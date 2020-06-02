@@ -7,3 +7,4 @@ resources:
 - smb-server.yaml
 - smb-config.yaml
 - loadbalancer.yaml
+- poddisruptionbudget.yaml
