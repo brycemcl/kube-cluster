@@ -1,0 +1,60 @@
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: tv
+spec:
+  storageClassName:  rook-ceph-block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5000Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: movies
+spec:
+  storageClassName:  rook-ceph-block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5000Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: games
+spec:
+  storageClassName:  rook-ceph-block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5000Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: downloads
+spec:
+  storageClassName:  rook-ceph-block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5000Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: videos
+spec:
+  storageClassName:  rook-ceph-block
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5000Gi

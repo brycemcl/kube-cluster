@@ -1,0 +1,47 @@
+apiVersion: v1
+data:
+  smb.conf: |
+    # Global parameters
+    [global]
+            dns proxy = No
+            map to guest = Bad User
+            name resolve order = bcast host
+            netbios name = SERVER
+            security = USER
+            server string = Server %v
+            idmap config * : backend = tdb
+
+
+    [TV]
+            create mask = 0777
+            guest ok = Yes
+            path = /srv/tv
+            read only = No
+
+    [Movies]
+            create mask = 0777
+            guest ok = Yes
+            path = /srv/movies
+            read only = No
+
+    [Games]
+            create mask = 0777
+            guest ok = Yes
+            path = /srv/games
+            read only = No
+
+    [Downloads]
+            create mask = 0777
+            guest ok = Yes
+            path = /srv/downloads
+            read only = No
+
+    [Videos]
+            create mask = 0777
+            guest ok = Yes
+            path = /srv/videos
+            read only = No
+
+kind: ConfigMap
+metadata:
+  name: samba-config
