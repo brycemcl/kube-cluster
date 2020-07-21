@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smb-server
+  labels:
+    app: smb-server
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1 
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: smb-server
+  template:
+    metadata:
+      labels:
+        app: smb-server
+        configmap-version: "1"
+    spec:
+      containers:
+      - name: smb-server
+        image: brycemclachlan/smb-server:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: jcr-data
+          mountPath: /srv/server
+        - name: samba-config
+          mountPath: /etc/samba/
+      restartPolicy: Always
+      volumes:
+      - name: jcr-data
+        persistentVolumeClaim:
+          claimName: jcr-data
+      - name: samba-config
+        configMap:
+          name: samba-config
