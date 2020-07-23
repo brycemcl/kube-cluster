@@ -20,7 +20,7 @@
 [submodule "kube-base"]
 	path = kube-base
 	url = https://github.com/brycemcl/kube-base.git
-	branch = master
+	branch = jcr-office
 [submodule "apps/metrics-server/metrics-server"]
 	path = apps/metrics-server/metrics-server
 	url = https://github.com/kubernetes-sigs/metrics-server.git
