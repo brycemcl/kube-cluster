@@ -1,6 +1,0 @@
-node_modules
-dist
-.vscode
-junit.xml
-coverage
-/yarn-error.log
