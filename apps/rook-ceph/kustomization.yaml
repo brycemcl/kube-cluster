@@ -5,7 +5,7 @@ resources:
 ##Cluster setting
 - rook/cluster/examples/kubernetes/ceph/common.yaml
 - rook/cluster/examples/kubernetes/ceph/operator.yaml
-- rook/cluster/examples/kubernetes/ceph/cluster-test.yaml
+- cluster-test.yaml
 #Block storage
 - rook/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-test.yaml
 patchesStrategicMerge:

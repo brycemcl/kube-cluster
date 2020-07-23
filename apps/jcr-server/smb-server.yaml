@@ -18,7 +18,7 @@ spec:
     metadata:
       labels:
         app: smb-server
-        configmap-version: "9"
+        configmap-version: "1"
     spec:
       containers:
       - env:
@@ -50,24 +50,24 @@ spec:
           name: syncthing-config
         - mountPath: /data
           name: jcr-data
-      - name: smb-server
-        image: brycemclachlan/smb-server:latest
-        imagePullPolicy: Always
-        resources: 
-          limits:
-            cpu: "2"
-            memory: "1000Mi"
-          requests:
-            cpu: ".1"
-            memory: "100Mi"
-        volumeMounts:
-        - name: jcr-data
-          mountPath: /srv/server
-        - name: samba-config
-          mountPath: /etc/samba/
-      restartPolicy: Always
-      hostNetwork: true
-      dnsPolicy: ClusterFirstWithHostNet
+#      - name: smb-server
+#        image: brycemclachlan/smb-server:latest
+#        imagePullPolicy: Always
+#        resources: 
+#          limits:
+#            cpu: "2"
+#            memory: "1000Mi"
+#          requests:
+#            cpu: ".1"
+#            memory: "100Mi"
+#        volumeMounts:
+#        - name: jcr-data
+#          mountPath: /srv/server
+#        - name: samba-config
+#          mountPath: /etc/samba/
+#      restartPolicy: Always
+#      hostNetwork: true
+#      dnsPolicy: ClusterFirstWithHostNet
       volumes:
       - name: jcr-data
         persistentVolumeClaim:
