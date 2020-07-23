@@ -18,8 +18,16 @@ spec:
     metadata:
       labels:
         app: smb-server
-        configmap-version: "9"
+        configmap-version: "14"
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+              - topologyKey: kubernetes.io/hostname
+                labelSelector:
+                  matchLabels:
+                    app: smb-server
+                namespaces: ["jcr"]
       containers:
       - env:
         - name: PGID
@@ -48,8 +56,12 @@ spec:
         volumeMounts:
         - mountPath: /config
           name: syncthing-config
-        - mountPath: /data
-          name: jcr-data
+        - mountPath: /data/photos
+          name: photos
+        - mountPath: /data/anacleto
+          name: anacleto
+        - mountPath: /data/bryce
+          name: bryce
       - name: smb-server
         image: brycemclachlan/smb-server:latest
         imagePullPolicy: Always
@@ -61,17 +73,52 @@ spec:
             cpu: ".1"
             memory: "100Mi"
         volumeMounts:
-        - name: jcr-data
-          mountPath: /srv/server
+        - name: bryce
+          mountPath: /srv/bryce
+        - name: anacleto
+          mountPath: /srv/anacleto
+        - name: photos
+          mountPath: /srv/photos
+        - name: tv
+          mountPath: /srv/tv
+        - name: movies
+          mountPath: /srv/movies
+        - name: games
+          mountPath: /srv/games
+        - name: downloads
+          mountPath: /srv/downloads
+        - name: videos
+          mountPath: /srv/videos
         - name: samba-config
           mountPath: /etc/samba/
       restartPolicy: Always
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       volumes:
-      - name: jcr-data
+      - name: photos
         persistentVolumeClaim:
-          claimName: jcr-data
+          claimName: photos
+      - name: tv
+        persistentVolumeClaim:
+          claimName: tv
+      - name: movies
+        persistentVolumeClaim:
+          claimName: movies
+      - name: games
+        persistentVolumeClaim:
+          claimName: games
+      - name: downloads
+        persistentVolumeClaim:
+          claimName: downloads
+      - name: videos
+        persistentVolumeClaim:
+          claimName: videos
+      - name: anacleto
+        persistentVolumeClaim:
+          claimName: anacleto
+      - name: bryce
+        persistentVolumeClaim:
+          claimName: bryce
       - name: samba-config
         configMap:
           name: samba-config

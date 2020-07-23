@@ -6,18 +6,20 @@ data:
             dns proxy = No
             map to guest = Bad User
             name resolve order = bcast host
-            netbios name = SERVER
+            netbios name = server
             security = USER
-            server string = Server %v
+            server string = Server
             idmap config * : backend = tdb
 
-
-    [Server]
+    [server]
             create mask = 0777
             guest ok = Yes
-            path = /srv/server
+            path = /srv/server/Server
             read only = No
             hide unreadable = yes
+            writable = yes
+            create mode = 0777
+            force directory mode = 0777
 
 kind: ConfigMap
 metadata:

@@ -1,4 +1,14 @@
-
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: photos
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 6000Gi
+---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -53,3 +63,36 @@ spec:
   resources:
     requests:
       storage: 6000Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: anacleto
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 6000Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bryce
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 6000Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: syncthing-config
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi

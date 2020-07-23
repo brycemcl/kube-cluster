@@ -6,3 +6,5 @@ bases:
 - cilium
 - jcr-server
 - ingress-nginx
+- metrics-server
+- media-server

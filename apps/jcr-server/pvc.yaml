@@ -3,9 +3,19 @@ apiVersion: v1
 metadata:
   name: jcr-data
 spec:
-  storageClassName:  rook-ceph-block
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 6000Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: syncthing-config
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi

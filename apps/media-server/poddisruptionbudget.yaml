@@ -1,0 +1,9 @@
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: smb-server
+spec:
+  minAvailable: 0
+  selector:
+    matchLabels:
+      app: smb-server
