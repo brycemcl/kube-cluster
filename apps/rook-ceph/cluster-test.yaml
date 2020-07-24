@@ -39,3 +39,10 @@ spec:
     useAllNodes: true
     useAllDevices: true
     #deviceFilter:
+  mgr:
+    modules:
+    - name: pg_autoscaler
+      enabled: true
+  network:
+    # enable host networking
+    provider: host

@@ -18,7 +18,7 @@ spec:
     metadata:
       labels:
         app: smb-server
-        configmap-version: "1"
+        configmap-version: "2"
     spec:
       containers:
       - env:
@@ -43,8 +43,8 @@ spec:
             cpu: "2"
             memory: "4000Mi"
           requests:
-            cpu: "1"
-            memory: "500Mi"
+            cpu: ".10"
+            memory: "100Mi"
         volumeMounts:
         - mountPath: /config
           name: syncthing-config
@@ -66,8 +66,8 @@ spec:
 #        - name: samba-config
 #          mountPath: /etc/samba/
 #      restartPolicy: Always
-#      hostNetwork: true
-#      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       volumes:
       - name: jcr-data
         persistentVolumeClaim:
