@@ -3,6 +3,7 @@ apiVersion: v1
 metadata:
   name: jcr-data
 spec:
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
@@ -14,6 +15,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: syncthing-config
 spec:
+  storageClassName: manual
   accessModes:
   - ReadWriteOnce
   resources:

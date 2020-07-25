@@ -4,6 +4,7 @@ namespace: jcr
 resources:
 - namespace.yaml
 - pvc.yaml
+- pv.yaml
 - smb-server.yaml
 - smb-config.yaml
 - poddisruptionbudget.yaml
