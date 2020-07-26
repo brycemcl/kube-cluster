@@ -6,7 +6,7 @@ data:
             dns proxy = No
             map to guest = Bad User
             name resolve order = bcast host
-            netbios name = server
+            netbios name = server-backup
             security = USER
             server string = Server
             idmap config * : backend = tdb

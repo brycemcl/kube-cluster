@@ -40,8 +40,8 @@ spec:
           protocol: UDP
         resources: 
           limits:
-            cpu: "2"
-            memory: "4000Mi"
+            cpu: "1"
+            memory: "2000Mi"
           requests:
             cpu: ".10"
             memory: "100Mi"
@@ -50,22 +50,22 @@ spec:
           name: syncthing-config
         - mountPath: /data
           name: jcr-data
-#      - name: smb-server
-#        image: brycemclachlan/smb-server:latest
-#        imagePullPolicy: Always
-#        resources: 
-#          limits:
-#            cpu: "2"
-#            memory: "1000Mi"
-#          requests:
-#            cpu: ".1"
-#            memory: "100Mi"
-#        volumeMounts:
-#        - name: jcr-data
-#          mountPath: /srv/server
-#        - name: samba-config
-#          mountPath: /etc/samba/
-#      restartPolicy: Always
+      - name: smb-server
+        image: brycemclachlan/smb-server:latest
+        imagePullPolicy: Always
+        resources: 
+          limits:
+            cpu: "1"
+            memory: "1000Mi"
+          requests:
+            cpu: ".1"
+            memory: "100Mi"
+        volumeMounts:
+        - name: jcr-data
+          mountPath: /srv/server
+        - name: samba-config
+          mountPath: /etc/samba/
+      restartPolicy: Always
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       volumes:
