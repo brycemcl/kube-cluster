@@ -6,3 +6,7 @@ metadata:
 spec:
   cephVersion:
     image: ceph/ceph:v15
+  mgr:
+    modules:
+    - name: pg_autoscaler
+      enabled: true
