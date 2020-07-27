@@ -20,7 +20,6 @@ data:
             writable = yes
             create mode = 0777
             force directory mode = 0777
-            oplocks = False
 
 kind: ConfigMap
 metadata:

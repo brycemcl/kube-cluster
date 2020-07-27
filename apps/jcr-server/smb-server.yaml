@@ -18,18 +18,18 @@ spec:
     metadata:
       labels:
         app: smb-server
-        configmap-version: "4"
+        configmap-version: "5"
     spec:
       containers:
       - env:
         - name: PGID
-          value: "1000"
+          value: "0"
         - name: PUID
-          value: "1000"
+          value: "0"
         - name: TZ
           value: Canada/Pacific
         - name: UMASK_SET
-          value: "022"
+          value: "000"
         name: syncthing
         image: linuxserver/syncthing
         imagePullPolicy: Always
