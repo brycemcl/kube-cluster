@@ -29,7 +29,7 @@ spec:
         - name: TZ
           value: Canada/Pacific
         - name: UMASK_SET
-          value: "022"
+          value: "000"
         name: syncthing
         image: linuxserver/syncthing
         imagePullPolicy: Always
