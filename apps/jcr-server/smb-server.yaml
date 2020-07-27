@@ -18,14 +18,14 @@ spec:
     metadata:
       labels:
         app: smb-server
-        configmap-version: "9"
+        configmap-version: "11"
     spec:
       containers:
       - env:
         - name: PGID
-          value: "1000"
+          value: "0"
         - name: PUID
-          value: "1000"
+          value: "0"
         - name: TZ
           value: Canada/Pacific
         - name: UMASK_SET
