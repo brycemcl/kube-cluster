@@ -18,7 +18,7 @@ spec:
     metadata:
       labels:
         app: smb-server
-        configmap-version: "11"
+        configmap-version: "5"
     spec:
       containers:
       - env:
@@ -40,11 +40,11 @@ spec:
           protocol: UDP
         resources: 
           limits:
-            cpu: "2"
-            memory: "4000Mi"
+            cpu: ".5"
+            memory: "1000Mi"
           requests:
-            cpu: "1"
-            memory: "500Mi"
+            cpu: ".10"
+            memory: "100Mi"
         volumeMounts:
         - mountPath: /config
           name: syncthing-config
@@ -55,7 +55,7 @@ spec:
         imagePullPolicy: Always
         resources: 
           limits:
-            cpu: "2"
+            cpu: ".5"
             memory: "1000Mi"
           requests:
             cpu: ".1"
