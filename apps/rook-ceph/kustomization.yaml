@@ -8,6 +8,8 @@ resources:
 - rook/cluster/examples/kubernetes/ceph/cluster.yaml
 #Block storage
 - rook/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-ec.yaml
+##dash
+- rook/cluster/examples/kubernetes/ceph/dashboard-loadbalancer.yaml
 patchesStrategicMerge:
 #Block storage
 - replicated-metadata-pool.yaml
