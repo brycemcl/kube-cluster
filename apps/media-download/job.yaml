@@ -1,20 +1,21 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: tv-download
+  name: downloads
 spec:
   schedule: "*/1 * * * *"
+  concurrencyPolicy: Forbid
   jobTemplate:
     spec:
       template:
         spec:
           restartPolicy: OnFailure
-          concurrencyPolicy: Forbid
           containers:
           - name: lftp
-            image: brycemclachlan/lftp:latest
+            image: brycemclachlan/lftp
+            imagePullPolicy: Always
             args:
-            - sftp://apollo.feralhosting.com
+            - apollo.feralhosting.com
             - ./private/downloaded/
             - /srv/downloads/
             resources: 
@@ -42,8 +43,7 @@ spec:
             - name: videos
               mountPath: /srv/videos
             - name: lftp-netrc
-              mountPath: /root/
-            imagePullPolicy: Always
+              mountPath: /netrc/
           volumes:
           - name: photos
             persistentVolumeClaim:
