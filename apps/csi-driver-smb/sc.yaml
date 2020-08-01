@@ -1,0 +1,144 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: smb-tv
+provisioner: smb.csi.k8s.io
+parameters:
+  source: "//smb-server-tcp.media.svc.home.bmclachlan.xyz/tv"
+  csi.storage.k8s.io/node-stage-secret-name: "smbcreds"
+  csi.storage.k8s.io/node-stage-secret-namespace: "kube-system"
+  createSubDir: "false"  # optional: create a sub dir for new volume
+reclaimPolicy: Retain  # only retain is supported
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: smb-bryce
+provisioner: smb.csi.k8s.io
+parameters:
+  source: "//smb-server-tcp.media.svc.home.bmclachlan.xyz/bryce"
+  csi.storage.k8s.io/node-stage-secret-name: "smbcreds"
+  csi.storage.k8s.io/node-stage-secret-namespace: "kube-system"
+  createSubDir: "false"  # optional: create a sub dir for new volume
+reclaimPolicy: Retain  # only retain is supported
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: smb-anacleto
+provisioner: smb.csi.k8s.io
+parameters:
+  source: "//smb-server-tcp.media.svc.home.bmclachlan.xyz/anacleto"
+  csi.storage.k8s.io/node-stage-secret-name: "smbcreds"
+  csi.storage.k8s.io/node-stage-secret-namespace: "kube-system"
+  createSubDir: "false"  # optional: create a sub dir for new volume
+reclaimPolicy: Retain  # only retain is supported
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: smb-photos
+provisioner: smb.csi.k8s.io
+parameters:
+  source: "//smb-server-tcp.media.svc.home.bmclachlan.xyz/photos"
+  csi.storage.k8s.io/node-stage-secret-name: "smbcreds"
+  csi.storage.k8s.io/node-stage-secret-namespace: "kube-system"
+  createSubDir: "false"  # optional: create a sub dir for new volume
+reclaimPolicy: Retain  # only retain is supported
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: smb-movies
+provisioner: smb.csi.k8s.io
+parameters:
+  source: "//smb-server-tcp.media.svc.home.bmclachlan.xyz/movies"
+  csi.storage.k8s.io/node-stage-secret-name: "smbcreds"
+  csi.storage.k8s.io/node-stage-secret-namespace: "kube-system"
+  createSubDir: "false"  # optional: create a sub dir for new volume
+reclaimPolicy: Retain  # only retain is supported
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: smb-games
+provisioner: smb.csi.k8s.io
+parameters:
+  source: "//smb-server-tcp.media.svc.home.bmclachlan.xyz/games"
+  csi.storage.k8s.io/node-stage-secret-name: "smbcreds"
+  csi.storage.k8s.io/node-stage-secret-namespace: "kube-system"
+  createSubDir: "false"  # optional: create a sub dir for new volume
+reclaimPolicy: Retain  # only retain is supported
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: smb-downloads
+provisioner: smb.csi.k8s.io
+parameters:
+  source: "//smb-server-tcp.media.svc.home.bmclachlan.xyz/downloads"
+  csi.storage.k8s.io/node-stage-secret-name: "smbcreds"
+  csi.storage.k8s.io/node-stage-secret-namespace: "kube-system"
+  createSubDir: "false"  # optional: create a sub dir for new volume
+reclaimPolicy: Retain  # only retain is supported
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: smb-videos
+provisioner: smb.csi.k8s.io
+parameters:
+  source: "//smb-server-tcp.media.svc.home.bmclachlan.xyz/videos"
+  csi.storage.k8s.io/node-stage-secret-name: "smbcreds"
+  csi.storage.k8s.io/node-stage-secret-namespace: "kube-system"
+  createSubDir: "false"  # optional: create a sub dir for new volume
+reclaimPolicy: Retain  # only retain is supported
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+---

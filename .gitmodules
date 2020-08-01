@@ -25,3 +25,6 @@
 	path = apps/metrics-server/metrics-server
 	url = https://github.com/kubernetes-sigs/metrics-server.git
 	branch = release-0.3
+[submodule "apps/csi-driver-smb/csi-driver-smb"]
+	path = apps/csi-driver-smb/csi-driver-smb
+	url = https://github.com/kubernetes-csi/csi-driver-smb.git

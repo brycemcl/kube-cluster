@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smb-server
+  labels:
+    app: smb-server
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1 
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: smb-server
+  template:
+    metadata:
+      labels:
+        app: smb-server
+        configmap-version: "15"
+    spec:
+      containers:
+      - name: smb-server
+        image: brycemclachlan/smb-server:latest
+        imagePullPolicy: Always
+        resources: 
+          limits:
+            cpu: "2"
+            memory: "1000Mi"
+          requests:
+            cpu: ".1"
+            memory: "100Mi"
+        volumeMounts:
+        - name: tv
+          mountPath: /srv/tv
+      restartPolicy: Always
+      volumes:
+      - name: tv
+        persistentVolumeClaim:
+          claimName: smb-tv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: smb-tv
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 6000Gi
+  storageClassName: smb-tv

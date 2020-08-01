@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kube-system
+resources:
+- csi-driver-smb/deploy/v0.2.0/csi-smb-controller.yaml
+- csi-driver-smb/deploy/v0.2.0/csi-smb-driver.yaml
+- csi-driver-smb/deploy/v0.2.0/csi-smb-node.yaml
+- csi-driver-smb/deploy/v0.2.0/rbac-csi-smb-controller.yaml
+- sc.yaml
+#- smb-server.yaml

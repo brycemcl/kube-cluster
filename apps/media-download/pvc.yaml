@@ -1,0 +1,103 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: smb-photos
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 6000Gi
+  storageClassName: smb-photos
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: smb-tv
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 6000Gi
+  storageClassName: smb-tv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: smb-movies
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 6000Gi
+  storageClassName: smb-movies
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: smb-games
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 6000Gi
+  storageClassName: smb-games
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: smb-downloads
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 6000Gi
+  storageClassName: smb-downloads
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: smb-videos
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 6000Gi
+  storageClassName: smb-videos
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: smb-anacleto
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 6000Gi
+  storageClassName: smb-anacleto
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: smb-bryce
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 6000Gi
+  storageClassName: smb-bryce

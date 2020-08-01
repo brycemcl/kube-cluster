@@ -8,3 +8,5 @@ bases:
 - ingress-nginx
 - metrics-server
 - media-server
+- csi-driver-smb
+- media-download
