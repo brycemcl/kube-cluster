@@ -10,3 +10,6 @@ bases:
 - media-server
 - csi-driver-smb
 - media-download
+- media-sonarr
+- media-radarr
+- media-jackett

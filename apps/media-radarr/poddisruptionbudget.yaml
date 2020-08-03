@@ -1,0 +1,9 @@
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: radarr
+spec:
+  minAvailable: 0
+  selector:
+    matchLabels:
+      app: radarr

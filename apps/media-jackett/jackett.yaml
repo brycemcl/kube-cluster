@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jackett
+  labels:
+    app: jackett
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1 
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: jackett
+  template:
+    metadata:
+      labels:
+        app: jackett
+        configmap-version: "14"
+    spec:
+      containers:
+      - env:
+        - name: PGID
+          value: "1000"
+        - name: PUID
+          value: "1000"
+        - name: TZ
+          value: Canada/Pacific
+        - name: UMASK_SET
+          value: "000"
+        name: jackett
+        image: linuxserver/jackett
+        imagePullPolicy: Always
+        resources: 
+          limits:
+            cpu: "2"
+            memory: "1000Mi"
+          requests:
+            cpu: ".1"
+            memory: "100Mi"
+        volumeMounts:
+        - name: jackett-config
+          mountPath: /config
+      volumes:
+      - name: jackett-config
+        persistentVolumeClaim:
+          claimName: jackett-config

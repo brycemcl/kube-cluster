@@ -1,0 +1,76 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: downloads-movies
+spec:
+  schedule: "*/5 * * * *"
+  concurrencyPolicy: Forbid
+  startingDeadlineSeconds: 60
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: lftp
+            image: brycemclachlan/lftp
+            imagePullPolicy: Always
+            args:
+            - apollo.feralhosting.com
+            - ./private/downloaded/movies/
+            - /srv/downloads/movies/
+            resources: 
+              limits:
+                cpu: "2"
+                memory: "1000Mi"
+              requests:
+                cpu: ".1"
+                memory: "100Mi"
+            volumeMounts:
+            - name: bryce
+              mountPath: /srv/bryce
+            - name: anacleto
+              mountPath: /srv/anacleto
+            - name: photos
+              mountPath: /srv/photos
+            - name: tv
+              mountPath: /srv/tv
+            - name: movies
+              mountPath: /srv/movies
+            - name: games
+              mountPath: /srv/games
+            - name: downloads
+              mountPath: /srv/downloads
+            - name: videos
+              mountPath: /srv/videos
+            - name: lftp-netrc
+              mountPath: /netrc/
+          volumes:
+          - name: photos
+            persistentVolumeClaim:
+              claimName: smb-photos
+          - name: tv
+            persistentVolumeClaim:
+              claimName: smb-tv
+          - name: movies
+            persistentVolumeClaim:
+              claimName: smb-movies
+          - name: games
+            persistentVolumeClaim:
+              claimName: smb-games
+          - name: downloads
+            persistentVolumeClaim:
+              claimName: smb-downloads
+          - name: videos
+            persistentVolumeClaim:
+              claimName: smb-videos
+          - name: anacleto
+            persistentVolumeClaim:
+              claimName: smb-anacleto
+          - name: bryce
+            persistentVolumeClaim:
+              claimName: smb-bryce
+          - name: lftp-netrc
+            secret:
+              secretName: lftp-netrc
+##kubectl create secret -n media generic lftp-netrc --from-file=.netrc

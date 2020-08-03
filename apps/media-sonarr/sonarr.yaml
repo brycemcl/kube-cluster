@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonarr
+  labels:
+    app: sonarr
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1 
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: sonarr
+  template:
+    metadata:
+      labels:
+        app: sonarr
+        configmap-version: "14"
+    spec:
+      containers:
+      - env:
+        - name: PGID
+          value: "1000"
+        - name: PUID
+          value: "1000"
+        - name: TZ
+          value: Canada/Pacific
+        - name: UMASK_SET
+          value: "000"
+        name: sonarr
+        image: linuxserver/sonarr
+        imagePullPolicy: Always
+        resources: 
+          limits:
+            cpu: "2"
+            memory: "1000Mi"
+          requests:
+            cpu: ".1"
+            memory: "100Mi"
+        volumeMounts:
+        - name: bryce
+          mountPath: /srv/bryce
+        - name: anacleto
+          mountPath: /srv/anacleto
+        - name: photos
+          mountPath: /srv/photos
+        - name: tv
+          mountPath: /srv/tv
+        - name: movies
+          mountPath: /srv/movies
+        - name: games
+          mountPath: /srv/games
+        - name: downloads
+          mountPath: /srv/downloads
+        - name: videos
+          mountPath: /srv/videos
+        - name: sonarr-config
+          mountPath: /config
+      volumes:
+      - name: photos
+        persistentVolumeClaim:
+          claimName: smb-photos
+      - name: tv
+        persistentVolumeClaim:
+          claimName: smb-tv
+      - name: movies
+        persistentVolumeClaim:
+          claimName: smb-movies
+      - name: games
+        persistentVolumeClaim:
+          claimName: smb-games
+      - name: downloads
+        persistentVolumeClaim:
+          claimName: smb-downloads
+      - name: videos
+        persistentVolumeClaim:
+          claimName: smb-videos
+      - name: anacleto
+        persistentVolumeClaim:
+          claimName: smb-anacleto
+      - name: bryce
+        persistentVolumeClaim:
+          claimName: smb-bryce
+      - name: sonarr-config
+        persistentVolumeClaim:
+          claimName: sonarr-config
