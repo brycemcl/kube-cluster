@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: plex-daemon
+spec:
+  selector:
+    matchLabels:
+      name: plex-daemon
+  template:
+    metadata:
+      labels:
+        name: plex-daemon
+    spec:
+      containers:
+      - name: plex-daemon
+        image: linuxserver/plex

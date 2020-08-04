@@ -13,3 +13,4 @@ bases:
 - media-sonarr
 - media-radarr
 - media-jackett
+- media-plex
