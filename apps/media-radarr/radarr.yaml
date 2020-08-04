@@ -18,8 +18,16 @@ spec:
     metadata:
       labels:
         app: radarr
-        configmap-version: "14"
+        configmap-version: "15"
     spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+              - topologyKey: kubernetes.io/hostname
+                labelSelector:
+                  matchLabels:
+                    app: smb-server
+                namespaces: ["media"]
       containers:
       - env:
         - name: PGID

@@ -11,6 +11,14 @@ spec:
       template:
         spec:
           restartPolicy: OnFailure
+          affinity:
+            podAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                  - topologyKey: kubernetes.io/hostname
+                    labelSelector:
+                      matchLabels:
+                        app: smb-server
+                    namespaces: ["media"]
           containers:
           - name: lftp
             image: brycemclachlan/lftp

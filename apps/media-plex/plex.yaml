@@ -18,8 +18,16 @@ spec:
     metadata:
       labels:
         app: plex
-        configmap-version: "14"
+        configmap-version: "16"
     spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+              - topologyKey: kubernetes.io/hostname
+                labelSelector:
+                  matchLabels:
+                    app: smb-server
+                namespaces: ["media"]
       containers:
       - env:
         - name: PGID
@@ -63,6 +71,8 @@ spec:
           mountPath: /srv/videos
         - name: plex-config
           mountPath: /config
+        - name: plex-transcode
+          mountPath: /transcode
       volumes:
       - name: photos
         persistentVolumeClaim:
@@ -91,3 +101,6 @@ spec:
       - name: plex-config
         persistentVolumeClaim:
           claimName: plex-config
+      - name: plex-transcode
+        persistentVolumeClaim:
+          claimName: plex-transcode
