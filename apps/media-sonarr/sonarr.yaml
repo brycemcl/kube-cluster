@@ -63,6 +63,7 @@ spec:
           mountPath: /srv/games
         - name: downloads
           mountPath: /srv/downloads
+          readOnly: true
         - name: videos
           mountPath: /srv/videos
         - name: sonarr-config
