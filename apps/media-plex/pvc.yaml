@@ -20,3 +20,25 @@ spec:
     requests:
       storage: 1000Gi
   storageClassName: rook-ceph-block-scratch
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: plex-optimize-movies
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 6000Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: plex-optimize-tv
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 6000Gi

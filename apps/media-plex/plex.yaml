@@ -73,6 +73,10 @@ spec:
           mountPath: /config
         - name: plex-transcode
           mountPath: /transcode
+        - name: plex-optimize-tv
+          mountPath: /optimize/tv
+        - name: plex-optimize-movies
+          mountPath: /optimize/movies
       volumes:
       - name: photos
         persistentVolumeClaim:
@@ -104,3 +108,9 @@ spec:
       - name: plex-transcode
         persistentVolumeClaim:
           claimName: plex-transcode
+      - name: plex-optimize-tv
+        persistentVolumeClaim:
+          claimName: plex-optimize-tv
+      - name: plex-optimize-movies
+        persistentVolumeClaim:
+          claimName: plex-optimize-movies
