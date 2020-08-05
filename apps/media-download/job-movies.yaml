@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: downloads-movies
 spec:
-  schedule: "*/5 * * * *"
+  schedule: "* 1 * * *"
   concurrencyPolicy: Forbid
   startingDeadlineSeconds: 60
   jobTemplate:
