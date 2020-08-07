@@ -4,7 +4,8 @@ namespace: media
 resources:
 #- namespace.yaml
 - pvc.yaml
-- job-tv.yaml
-- job-movies.yaml
-- job-other.yaml
-- job-games.yaml
+#- job-tv.yaml
+#- job-movies.yaml
+#- job-other.yaml
+#- job-games.yaml
+- job-downloads.yaml

@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: downloads-movies
+  name: downloads
 spec:
   schedule: "* * * * *"
   concurrencyPolicy: Forbid
@@ -25,8 +25,8 @@ spec:
             imagePullPolicy: Always
             args:
             - apollo.feralhosting.com
-            - ./private/downloaded/movies/
-            - /srv/downloads/movies/
+            - ./private/downloaded/
+            - /srv/downloads/
             resources: 
               limits:
                 cpu: "2"
