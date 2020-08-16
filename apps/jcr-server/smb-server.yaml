@@ -40,7 +40,7 @@ spec:
           protocol: UDP
         resources: 
           limits:
-            cpu: "2"
+            cpu: "4"
             memory: "4000Mi"
           requests:
             cpu: "1"
