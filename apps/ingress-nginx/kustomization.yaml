@@ -2,6 +2,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: ingress-nginx
 resources:
-- ingress-nginx/deploy/static/provider/baremetal/deploy.yaml
-patchesStrategicMerge:
-- loadbalancer.yaml
+- deploy.yaml
