@@ -13,10 +13,6 @@
 	path = apps/metallb/metallb
 	url = https://github.com/metallb/metallb.git
 	branch = v0.9
-[submodule "apps/cilium/cilium"]
-	path = apps/cilium/cilium
-	url = https://github.com/cilium/cilium.git
-	branch = v1.7
 [submodule "kube-base"]
 	path = kube-base
 	url = https://github.com/brycemcl/kube-base.git
@@ -28,3 +24,7 @@
 [submodule "apps/csi-driver-smb/csi-driver-smb"]
 	path = apps/csi-driver-smb/csi-driver-smb
 	url = https://github.com/kubernetes-csi/csi-driver-smb.git
+[submodule "apps/cilium/cilium"]
+	path = apps/cilium/cilium
+	url = https://github.com/cilium/cilium.git
+	branch = v1.7
